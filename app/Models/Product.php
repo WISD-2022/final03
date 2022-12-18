@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     use HasFactory;
+
     public function admin(){
         return $this->belongsTo(Admin::class);         #多對一
     }
@@ -21,4 +22,12 @@ class Product extends Model
     {
         return $this->belongsToMany(Items::class);
     }
+
+    protected $fillable=[
+        'name',
+        'content',
+        'picture',
+        'price',
+        'inventory',
+    ];
 }
