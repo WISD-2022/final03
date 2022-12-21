@@ -31,6 +31,16 @@ class User extends Authenticatable
         'birthday',
         'address',
     ];
+    public function order(){
+        return $this->hasMany(Order::class);             #一對多
+    }
+    public function product(){
+        return $this->belongsToMany(Product::class);     #多對多
+    }
+    public function cart()
+    {
+        return $this->hasMany(Cart::class);             #一對多
+    }
 
     /**
      * The attributes that should be hidden for serialization.

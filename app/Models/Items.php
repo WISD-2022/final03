@@ -9,6 +9,14 @@ class Items extends Model
 {
     use HasFactory;
 
+    public function order()
+    {
+        return $this->belongsTo(Order::class);          #多對一
+    }
+    public function product()
+    {
+        return $this->belongsToMany(Product::class);    #多對多
+    }
     protected $fillable=[
         'orders_id',
         'products_id',
