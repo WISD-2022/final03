@@ -25,8 +25,12 @@ use App\Http\Controllers\HomeController;
 Route::get('/', function () {
     return view('welcome');
 });
-
+//首頁路徑
 Route::get('/home',[HomeController::class,'index'])->name('home.index');
+#修改會員資料頁面
+Route::get('/user/edit',[\App\Http\Controllers\UserController::class,'edit'])->name('user.edit');
+#更新會員資料
+Route::patch('/user/{id}',[\App\Http\Controllers\UserController::class,'update'])->name('user.update');
 
 Route::resource('admins',AdminController::class);
 Route::resource('admin_orders',AdminOrderController::class);
