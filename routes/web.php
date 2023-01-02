@@ -26,7 +26,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/home',[HomeController::class,'index'])->name('home.index');
+#產品頁面
+Route::get('/home',[\App\Http\Controllers\HomeController::class,'index'])->name('home');
 
 Route::resource('admins',AdminController::class);
 Route::resource('admin_orders',AdminOrderController::class);
