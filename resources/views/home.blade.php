@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title','Handmade Soap Shop - Home')
+@section('title','HS Shop - Home')
 @section('content')
 
 <!-- Header-->
