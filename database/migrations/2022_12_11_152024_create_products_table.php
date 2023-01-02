@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('scent');
             $table->integer('price');
             $table->integer('inventory');
+            $table->text('status');
         });
     }
 
