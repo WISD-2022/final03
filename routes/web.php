@@ -25,8 +25,10 @@ use App\Http\Controllers\HomeController;
 Route::get('/', function () {
     return view('welcome');
 });
-//首頁路徑
-Route::get('/home',[HomeController::class,'index'])->name('home.index');
+
+#產品頁面
+Route::get('/home',[\App\Http\Controllers\HomeController::class,'index'])->name('home');
+
 #修改會員資料頁面
 Route::get('/user/edit',[\App\Http\Controllers\UserController::class,'edit'])->name('user.edit');
 #更新會員資料
