@@ -9,6 +9,7 @@ use App\Http\Controllers\ItemsController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +26,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/home',[HomeController::class,'index'])->name('home.index');
+
 Route::resource('admins',AdminController::class);
 Route::resource('admin_orders',AdminOrderController::class);
 Route::resource('carts',CartController::class);
@@ -33,6 +36,4 @@ Route::resource('orders.items', ItemsController::class);
 Route::resource('orders',OrderController::class);
 Route::resource('products',ProductController::class);
 Route::resource('users', UserController::class);
-
-
 
