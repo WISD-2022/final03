@@ -23,7 +23,7 @@ class Product extends Model
         return $this->belongsToMany(Items::class);
     }
 
-    protected $table = '$products';
+    protected $table = 'products';
 
     protected $fillable=[
         'name',

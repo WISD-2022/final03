@@ -22,17 +22,18 @@ use App\Http\Controllers\HomeController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//    return view('welcome');
+//});
 
-#產品頁面
-Route::get('/home',[\App\Http\Controllers\HomeController::class,'index'])->name('home');
-
-#修改會員資料頁面
+#首頁
+Route::get('/',[\App\Http\Controllers\HomeController::class,'index'])->name('home');
+#修改會員資料
 Route::get('/user/edit',[\App\Http\Controllers\UserController::class,'edit'])->name('user.edit');
 #更新會員資料
 Route::patch('/user/{id}',[\App\Http\Controllers\UserController::class,'update'])->name('user.update');
+#產品詳細資訊
+Route::get('/product/detail/{id}',[\App\Http\Controllers\ProductController::class,'show'])->name('product.detail');
 
 Route::resource('admins',AdminController::class);
 Route::resource('admin_orders',AdminOrderController::class);
@@ -42,4 +43,5 @@ Route::resource('orders.items', ItemsController::class);
 Route::resource('orders',OrderController::class);
 Route::resource('products',ProductController::class);
 Route::resource('users', UserController::class);
+Route::resource('home',HomeController::class);
 
