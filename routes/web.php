@@ -28,6 +28,8 @@ use App\Http\Controllers\HomeController;
 
 #首頁
 Route::get('/',[\App\Http\Controllers\HomeController::class,'index'])->name('home');
+#登出
+Route::get('/logout',[\App\Http\Controllers\UserController::class,'logout'])->name('user.logout');
 #修改會員資料
 Route::get('/user/edit',[\App\Http\Controllers\UserController::class,'edit'])->name('user.edit');
 #更新會員資料

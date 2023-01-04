@@ -22,4 +22,9 @@ class UserController extends Controller
         $info->update($request->all());
         return redirect()->route('user.edit');
     }
+    public function logout()
+    {
+        Auth::logout();
+        return redirect()->route('home');
+    }
 }
