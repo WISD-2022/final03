@@ -34,6 +34,8 @@ Route::get('/user/edit',[\App\Http\Controllers\UserController::class,'edit'])->n
 Route::patch('/user/{id}',[\App\Http\Controllers\UserController::class,'update'])->name('user.update');
 #產品詳細資訊
 Route::get('/product/detail/{id}',[\App\Http\Controllers\ProductController::class,'show'])->name('product.detail');
+#商品加入購物車
+Route::post('/cart/store',[\App\Http\Controllers\CartController::class,'store'])->name('cart.store');
 
 Route::resource('admins',AdminController::class);
 Route::resource('admin_orders',AdminOrderController::class);

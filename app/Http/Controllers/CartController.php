@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Cart;
 use App\Http\Requests\StoreCartRequest;
 use App\Http\Requests\UpdateCartRequest;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class CartController extends Controller
 {
@@ -15,7 +17,20 @@ class CartController extends Controller
      */
     public function index()
     {
-        //
+        $name = Auth::user()->id;
+        $carts = DB::table('carts')
+            ->join('products', 'carts.products_id', '=', 'products.id')
+            ->where('carts.users_id', $name)
+            ->select('carts.id', 'products.name', 'carts.amount', 'products.price')
+            ->get();
+        ['carts'=>$carts];
+        $total=0;
+        foreach ($carts as $cart)
+        {
+            $total = ($cart->price)*($cart->amount)+$total;
+        }
+        $data=['carts'=>$carts,'total'=>$total];
+        return view('cart.index',$data);
     }
 
     /**
@@ -36,7 +51,8 @@ class CartController extends Controller
      */
     public function store(StoreCartRequest $request)
     {
-        //
+        Cart::create($request->all());
+        return redirect()->route('product')->with('status','系統提示：已將商品加入購物車');
     }
 
     /**
