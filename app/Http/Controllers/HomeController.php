@@ -15,8 +15,9 @@ class HomeController extends Controller
     public function index()
     {
         $data = DB::table('products')->get();
-
         return view('home', ['product' => $data]);
+
+
     }
 
     /**
