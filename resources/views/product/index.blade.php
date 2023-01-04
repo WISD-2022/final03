@@ -13,8 +13,7 @@
                         <img src="../{{$product->picture}}" class="card-img-top" alt="...">
                         <div class="card-body text-center">
                             <h5 class="card-title mb-0">{{$product->name}}</h5>
-                            <div class="card-text text-black-50">{{$product->content}}</div>
-                            <br><a class="btn btn-outline-info btn-sm" href="{{route('product.detail',$product->id)}}">詳細資訊</a>
+                            <br><a class="btn btn-outline-info" href="{{route('product.detail',$product->id)}}">詳細資訊</a>
                         </div>
                     </div>
                 </div>

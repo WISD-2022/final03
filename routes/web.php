@@ -30,16 +30,13 @@ use App\Http\Controllers\HomeController;
 Route::get('/',[\App\Http\Controllers\HomeController::class,'index'])->name('home');
 #產品頁面
 Route::get('/product/index',[\App\Http\Controllers\ProductController::class,'index'])->name('product.index');
-
-
 #產品詳細資訊
 Route::get('/product/index/detail/{id}',[\App\Http\Controllers\ProductController::class,'show'])->name('product.detail');
-
-
-#購物車頁面
-Route::get('/cart/index',[\App\Http\Controllers\CartController::class,'index'])->name('cart.index');
 #商品加入購物車
 Route::post('/cart/store',[\App\Http\Controllers\CartController::class,'store'])->name('cart.store');
+#購物車頁面
+Route::get('/cart/index',[\App\Http\Controllers\CartController::class,'index'])->name('cart.index');
+
 
 
 #登出
