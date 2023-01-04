@@ -21,13 +21,13 @@ class CartController extends Controller
         $carts = DB::table('carts')
             ->join('products', 'carts.products_id', '=', 'products.id')
             ->where('carts.users_id', $name)
-            ->select('carts.id', 'products.name', 'carts.amount', 'products.price')
+            ->select('carts.id', 'products.name', 'carts.quantity', 'products.price')
             ->get();
         ['carts'=>$carts];
         $total=0;
         foreach ($carts as $cart)
         {
-            $total = ($cart->price)*($cart->amount)+$total;
+            $total = ($cart->price)*($cart->quantity)+$total;
         }
         $data=['carts'=>$carts,'total'=>$total];
         return view('cart.index',$data);
@@ -52,7 +52,7 @@ class CartController extends Controller
     public function store(StoreCartRequest $request)
     {
         Cart::create($request->all());
-        return redirect()->route('product')->with('status','系統提示：已將商品加入購物車');
+        return redirect()->route('home')->with('status','系統提示：已將商品加入購物車');
     }
 
     /**
@@ -95,8 +95,9 @@ class CartController extends Controller
      * @param  \App\Models\Cart  $cart
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Cart $cart)
+    public function destroy(Cart $cart,$id)
     {
-        //
+        Cart::destroy($id);
+        return redirect()->route('cart.index');
     }
 }

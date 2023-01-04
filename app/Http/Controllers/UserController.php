@@ -12,7 +12,6 @@ class UserController extends Controller
     {
         $info = Auth::user();
         $data = ['user'=>$info];
-        #dd($data);
         return view('user.information',$data);
     }
 

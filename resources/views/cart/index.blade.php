@@ -20,25 +20,25 @@
                         </tr>
                         </thead>
                         <tbody>
-                            @foreach($cart as $carts)
+                            @foreach($carts as $cart)
                                 <tr>
                                     <td style="text-align: center;line-height:100px;vertical-align: middle">
-                                        <img class="" src="{{ url($carts->image) }}" style="width:100px;height:100px" >&nbsp&nbsp
+                                        <img class="" src="{{ url($cart->picture) }}" style="width:100px;height:100px" >&nbsp&nbsp
                                     </td>
                                     <td style="text-align: center;line-height:100px;vertical-align: middle">
-                                        {{$carts->name}}
+                                        {{$cart->name}}
                                     </td>
                                     <td style="text-align: center;line-height:100px;vertical-align: middle">
-                                        ${{$carts->price}}
+                                        ${{$cart->price}}
                                     </td>
                                     <td style="text-align: center;vertical-align: middle">
-                                        {{$carts->amount}}
+                                        {{$cart->amount}}
                                     </td>
                                     <td style="text-align: center;vertical-align: middle">
-                                        ${{($carts->amount)*($cart->price)}}
+                                        ${{($cart->amount)*($cart->price)}}
                                     </td>
                                     <td style="text-align: center;vertical-align: middle">
-                                        <form action="/cart/destroy/{{$carts->id}}" method="POST"style=" display: inline">
+                                        <form action="/cart/destroy/{{$cart->id}}" method="POST"style=" display: inline">
                                             @method('DELETE')
                                             @csrf
                                             <button type="submit" class="btn btn-danger">刪除</button>

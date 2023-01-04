@@ -16,7 +16,7 @@
         </div>
     </div>
 </header>
-<hr><br>
+<center><hr width="80%"><br></center>
 <!-- Main Content -->
 <div class="container">
     <div class="row">

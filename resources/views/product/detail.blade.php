@@ -2,9 +2,23 @@
 @section('content')
 <style>
     .br1{
-        line-height:255px
+        line-height:145px
     }
 </style>
+<br>
+<header class="masthead">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                <div class="page-heading">
+                    <center><h1>商品資訊</h1></center>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<center><hr width="80%"></center>
 <section class="py-5 bg-3">
     <div class="container">
         <div class="row">
@@ -24,19 +38,19 @@
                             </tr>
                         </thead>
                         <tbody>
-                        @foreach($product as $products)
+                        @foreach($products as $product)
                             <tr>
                                 <td style="text-align: center;line-height:100px;">
-                                    <img class="" src="{{url($products->picture)}}" style="width:100px;height:100px" >
+                                    <img class="" src="{{url($product->picture)}}" style="width:100px;height:100px" >
                                 </td>
                                 <td style="text-align: center;line-height:100px; width: 30%;">
-                                    {{$products->name}}
+                                    {{$product->name}}
                                 </td>
                                 <td style="text-align: center;line-height:100px;">
-                                    ${{$products->price}}
+                                    ${{$product->price}}
                                 </td>
                                 <td style="text-align: center;line-height:100px;">
-                                    {{$products->scent}}
+                                    {{$product->scent}}
                                 </td>
                                 <td style="text-align: center;vertical-align: middle;">
                                     <input style="width: 50%;" type="number" name="amount" min="1" max="99" value="1">
@@ -46,7 +60,7 @@
                         </tbody>
                     </table>
                     <div style="text-align:center">
-                        <br><button type="submit" class="btn btn-outline-success mt-auto" name="products_id" value="{{$products->id}}">加入購物車</button>
+                        <br><button type="submit" class="btn btn-outline-success mt-auto" name="products_id" value="{{$product->id}}">加入購物車</button>
                     </div>
                 </form>
             </div>
