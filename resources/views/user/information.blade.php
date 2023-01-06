@@ -4,19 +4,19 @@
 
 <!-- Page Header -->
 <br>
-<header class="masthead" style="background-image: url('{{asset('images/user_edit_bg.jpeg')}}')">
+<header class="masthead">
     <div class="overlay"></div>
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-md-10 mx-auto">
                 <div class="page-heading">
-                    <center><h1>修改會員資料</h1></center>
+                    <br><center><h1><b>修改會員資料</b></h1></center>
                 </div>
             </div>
         </div>
     </div>
 </header>
-<hr><br>
+<center><hr width="80%"><br></center>
 <!-- Main Content -->
 <div class="container">
     <div class="row">

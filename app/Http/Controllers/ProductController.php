@@ -17,7 +17,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        $data = DB::table('products')->get();
+        return view('product.index', ['products' => $data]);
     }
 
     /**
@@ -50,8 +51,8 @@ class ProductController extends Controller
     public function show(Product $product,$id)
     {
         $name=Auth::user()->id;
-        $food=Product::where('id',$id)->get();
-        $data=['product'=>$food,'name'=>$name];
+        $soap=Product::where('id',$id)->get();
+        $data=['products'=>$soap,'name'=>$name];
         return view('product.detail',$data);
     }
 
@@ -87,11 +88,5 @@ class ProductController extends Controller
     public function destroy(Product $product)
     {
         //
-    }
-
-    public function product()
-    {
-        $data = DB::table('products')->get();
-        return view('product', ['product' => $data]);
     }
 }
