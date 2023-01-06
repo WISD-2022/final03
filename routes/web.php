@@ -44,6 +44,8 @@ Route::get('/cart/finish',[\App\Http\Controllers\CartController::class,'finish']
 Route::get('/cart/clear',[\App\Http\Controllers\CartController::class,'clear'])->name('cart.clear');
 #訂單頁面
 Route::get('/order/history',[\App\Http\Controllers\OrderController::class,'index'])->name('order.history');
+#單筆訂單詳細頁面
+Route::get('/order/detail/{id}',[\App\Http\Controllers\OrderController::class,'show'])->name('order.detail');
 
 #登出
 Route::get('/logout',[\App\Http\Controllers\UserController::class,'logout'])->name('user.logout');

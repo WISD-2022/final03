@@ -54,7 +54,7 @@
                                     {{$cart->quantity}}
                                 </td>
                                 <td style="text-align: center;vertical-align: middle">
-                                    NT.{{($cart->quantity)*($cart->price)}}
+                                    ${{($cart->quantity)*($cart->price)}}
                                 </td>
                                 <td style="text-align: center;vertical-align: middle">
                                     <form action="/cart/destroy/{{$cart->id}}" method="POST" style="vertical-align: middle">
@@ -68,7 +68,7 @@
                     </tbody>
                 </table>
                 <div style="text-align:right">
-                    <b>總計：NT.{{$total}}</b>
+                    <b>總計：{{$total}} 元</b>
                 </div>
                 <div style="text-align:center">
                     <a class="btn btn-outline-primary" href="{{route('cart.finish')}}">前往結帳</a>

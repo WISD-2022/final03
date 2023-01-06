@@ -19,7 +19,7 @@
                         <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{ Auth::user()->name }}</a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" href="{{route('user.edit')}}">會員資料</a></li>
-                            <li><a class="dropdown-item" href="">歷史訂單</a></li>
+                            <li><a class="dropdown-item" href="{{route('order.history')}}">歷史訂單</a></li>
                             <li><a class="dropdown-item" href="{{ route('user.logout') }}">登出</a></li>
                         </ul>
                     </li>

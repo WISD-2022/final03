@@ -48,14 +48,14 @@
                                     {{$cart->quantity}}
                                 </td>
                                 <td style="text-align: center;line-height:40px;">
-                                    NT.{{($cart->quantity)*($cart->price)}}
+                                    ${{($cart->quantity)*($cart->price)}}
                                 </td>
                             </tr>
                         @endforeach
                         </tbody>
                     </table>
                     <div style="text-align:right">
-                        <b>總計：NT.{{$total}}</b>
+                        <b>總計：{{$total}} 元</b>
                     </div>
                     <br>
                     <div class="form-group">
