@@ -38,10 +38,12 @@ Route::post('/cart/store',[\App\Http\Controllers\CartController::class,'store'])
 Route::get('/cart/index',[\App\Http\Controllers\CartController::class,'index'])->name('cart.index');
 #從購物車刪除商品
 Route::delete('/cart/destroy/{id}',[\App\Http\Controllers\CartController::class,'destroy'])->name('cart.destroy');
-#結帳頁面
+#前往結帳頁面
 Route::get('/cart/finish',[\App\Http\Controllers\CartController::class,'finish'])->name('cart.finish');
-#送出訂單
+#完成訂單
 Route::get('/cart/clear',[\App\Http\Controllers\CartController::class,'clear'])->name('cart.clear');
+#訂單頁面
+Route::get('/order/history',[\App\Http\Controllers\OrderController::class,'index'])->name('order.history');
 
 #登出
 Route::get('/logout',[\App\Http\Controllers\UserController::class,'logout'])->name('user.logout');

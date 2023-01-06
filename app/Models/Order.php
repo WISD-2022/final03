@@ -17,10 +17,12 @@ class Order extends Model
         return $this->hasMany(Items::class);     #一對多
     }
     protected $fillable=[
-        'user_id',
+        'id',
+        'users_id',
+        'products_id',
         'quantity',
         'sum',
+        'date',
         'status',
-        'date,'
     ];
 }

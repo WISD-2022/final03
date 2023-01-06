@@ -38,16 +38,16 @@
                         <tbody>
                         @foreach($carts as $cart)
                             <tr>
-                                <td style="text-align: center;vertical-align: middle">
+                                <td style="text-align: center;line-height:40px;">
                                     {{$cart->name}}
                                 </td>
-                                <td style="text-align: center;vertical-align: middle">
+                                <td style="text-align: center;line-height:40px;">
                                     ${{$cart->price}}
                                 </td>
-                                <td style="text-align: center;vertical-align: middle">
+                                <td style="text-align: center;line-height:40px;">
                                     {{$cart->quantity}}
                                 </td>
-                                <td style="text-align: center;vertical-align: middle">
+                                <td style="text-align: center;line-height:40px;">
                                     NT.{{($cart->quantity)*($cart->price)}}
                                 </td>
                             </tr>
@@ -67,8 +67,9 @@
                     </div>
                     <br>
                     <div style="text-align:center">
-                        <a class="btn btn-outline-primary" href="{{route('cart.finish')}}">完成結帳</a>
+                        <a class="btn btn-outline-primary" href="{{route('cart.clear')}}">完成結帳</a>
                     </div>
+                </form>
             </div>
         </div>
         <div class="br2">

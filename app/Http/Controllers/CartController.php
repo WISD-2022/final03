@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cart;
+use App\Models\Items;
 use App\Models\Order;
-use App\Models\Item;
-use App\Http\Requests\StoreCartRequest;
 use App\Http\Requests\UpdateCartRequest;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -131,7 +130,6 @@ class CartController extends Controller
     public function clear()
     {
         $name=Auth::user()->id;
-
         Order::create([
             'users_id'=>$name,
             'date'=>Carbon::now(),
@@ -157,11 +155,11 @@ class CartController extends Controller
         $sums=0;
         foreach ($carts as $cart)
         {
-            Item::create([
+            Items::create([
                 'orders_id'=>$order_id->id,
                 'products_id'=>$cart->id,
                 'quantity'=>$cart->quantity,
-                'total'=>$cart->price,
+                'sum'=>$cart->price,
             ]);
             $total = ($cart->price)*($cart->quantity)+$total;
             $sums=$cart->quantity+$sums;
