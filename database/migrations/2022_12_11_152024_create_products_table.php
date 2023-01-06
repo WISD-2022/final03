@@ -17,13 +17,14 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->string('name');
-            $table->string('content');
+            $table->string('description');
             $table->text('picture');
             $table->string('scent');
             $table->integer('price');
             $table->integer('inventory');
             $table->text('status');
         });
+
     }
 
     /**
@@ -34,5 +35,6 @@ return new class extends Migration
     public function down()
     {
         Schema::dropIfExists('products');
+
     }
 };

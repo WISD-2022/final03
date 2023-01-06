@@ -18,7 +18,6 @@ class HomeController extends Controller
         $data = DB::table('products')->get();
         return view('home', ['product' => $data]);
 
-
     }
 
     /**

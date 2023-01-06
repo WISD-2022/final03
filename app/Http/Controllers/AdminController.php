@@ -3,8 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Admin;
+use App\Models\Product;
 use App\Http\Requests\StoreAdminRequest;
 use App\Http\Requests\UpdateAdminRequest;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
+use function Illuminate\Events\queueable;
+
 
 class AdminController extends Controller
 {
@@ -15,7 +20,10 @@ class AdminController extends Controller
      */
     public function index()
     {
-        //
+        $products=Product::orderBy('id', 'asc')->get();
+        $data=['product'=>$products];
+        return view('admin.products.index', $data);
+
     }
 
     /**
@@ -25,7 +33,7 @@ class AdminController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.products.create');
     }
 
     /**
@@ -34,9 +42,22 @@ class AdminController extends Controller
      * @param  \App\Http\Requests\StoreAdminRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreAdminRequest $request)
+    public function store(Request $request)
     {
-        //
+        $products=new Product();
+
+        $products->id = $request->id;
+        $products->name = $request->name;
+        $products->description = $request-> description;
+        $products->picture = $request->picture;
+        $products->scent = $request->scent;
+        $products->price = $request->price;
+        $products->inventory = $request->inventory;
+        $products->status = $request->status;
+
+        $products->save();
+
+        return redirect()->route('admin.products.index');
     }
 
     /**
@@ -56,9 +77,11 @@ class AdminController extends Controller
      * @param  \App\Models\Admin  $admin
      * @return \Illuminate\Http\Response
      */
-    public function edit(Admin $admin)
+    public function edit($id)
     {
-        //
+        $products=Product::find($id);
+        $data=['products'=>$products];
+        return view('admin.products.edit',$data);
     }
 
     /**
@@ -68,9 +91,11 @@ class AdminController extends Controller
      * @param  \App\Models\Admin  $admin
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateAdminRequest $request, Admin $admin)
+    public function update(Request $request,$id)
     {
-        //
+        $products=Product::find($id);
+        $products->update($request->all());
+        return redirect()->route('admin.products.index');
     }
 
     /**
@@ -79,8 +104,14 @@ class AdminController extends Controller
      * @param  \App\Models\Admin  $admin
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Admin $admin)
+    public function destroy($id)
     {
-        //
+        Product::destroy($id);
+        return redirect()->route('admin.products.index');
+    }
+    public function product()
+    {
+        $data = DB::table('products')->get();
+        return view('product', ['product' => $data]);
     }
 }
