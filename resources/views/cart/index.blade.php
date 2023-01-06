@@ -2,7 +2,10 @@
 @section('content')
 <style>
     .br1{
-        line-height:385px
+        line-height:56px
+    }
+    .br2{
+        line-height:233px
     }
 </style>
 <br>
@@ -30,7 +33,7 @@
                             <th width="10%" style="text-align: center">價格</th>
                             <th width="10%" style="text-align: center">數量</th>
                             <th width="10%" style="text-align: center">小計</th>
-                            <th width="15%" style="text-align: center">操作</th>
+                            <th width="15%" style="text-align: center">刪除</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -68,7 +71,7 @@
             @else
                 <div style="text-align: center">
                     <div class="title-box">
-                        <br><h2>購物車沒東西哦！快去購物吧！</h2>
+                        <br><br><br><br><br><h2>購物車沒東西哦！快去購物吧！</h2>
                     </div>
                 </div>
                 <div class="br1">
@@ -77,6 +80,8 @@
             @endif
         </div>
     </div>
-    <br><br><br><br><br>
+    <div class="br2">
+        <br>
+    </div>
 </div>
 @endsection

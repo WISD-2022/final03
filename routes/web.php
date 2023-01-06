@@ -36,6 +36,8 @@ Route::get('/product/index/detail/{id}',[\App\Http\Controllers\ProductController
 Route::post('/cart/store',[\App\Http\Controllers\CartController::class,'store'])->name('cart.store');
 #購物車頁面
 Route::get('/cart/index',[\App\Http\Controllers\CartController::class,'index'])->name('cart.index');
+#從購物車刪除商品
+Route::delete('/cart/destroy/{id}',[\App\Http\Controllers\CartController::class,'destroy'])->name('cart.destroy');
 
 
 
