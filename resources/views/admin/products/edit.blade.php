@@ -1,6 +1,6 @@
 @extends('admin.layouts.master')
 
-@section('title', '編輯產品')
+@section('title', '編輯商品')
 
 @section('content')
 <!-- Page Heading -->
