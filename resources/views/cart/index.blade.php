@@ -2,10 +2,10 @@
 @section('content')
 <style>
     .br1{
-        line-height:56px
+        line-height:130px
     }
     .br2{
-        line-height:233px
+        line-height:160px
     }
 </style>
 <br>
@@ -29,8 +29,10 @@
                 <table class="table table-hover">
                     <thead>
                         <tr>
-                            <br><th width="20%" style="text-align: center">名稱</th>
-                            <th width="10%" style="text-align: center">價格</th>
+                            <br>
+                            <th width="20%" style="text-align: center">圖片</th>
+                            <th width="20%" style="text-align: center">名稱</th>
+                            <th width="10%" style="text-align: center">單價</th>
                             <th width="10%" style="text-align: center">數量</th>
                             <th width="10%" style="text-align: center">小計</th>
                             <th width="15%" style="text-align: center">刪除</th>
@@ -39,20 +41,23 @@
                     <tbody>
                         @foreach($carts as $cart)
                             <tr>
-                                <td style="text-align: center;line-height:100px;">
+                                <td style="text-align: center;vertical-align: middle">
+                                    <img class="img-fluid rounded mb-3 mb-md-0" src="{{url($cart->picture)}}" style="width:150px;height:150px" alt="">
+                                </td>
+                                <td style="text-align: center;vertical-align: middle">
                                     {{$cart->name}}
                                 </td>
-                                <td style="text-align: center;line-height:100px;">
+                                <td style="text-align: center;vertical-align: middle">
                                     ${{$cart->price}}
                                 </td>
                                 <td style="text-align: center;vertical-align: middle">
                                     {{$cart->quantity}}
                                 </td>
                                 <td style="text-align: center;vertical-align: middle">
-                                    NT.{{($cart->quantity)*($cart->price)}}
+                                    ${{($cart->quantity)*($cart->price)}}
                                 </td>
                                 <td style="text-align: center;vertical-align: middle">
-                                    <form action="/cart/destroy/{{$cart->id}}" method="POST"style=" display: inline">
+                                    <form action="/cart/destroy/{{$cart->id}}" method="POST" style="vertical-align: middle">
                                         @method('DELETE')
                                         @csrf
                                         <button type="submit" class="btn btn-danger">刪除</button>
@@ -63,10 +68,10 @@
                     </tbody>
                 </table>
                 <div style="text-align:right">
-                    <b>總計：NT.{{$total}}</b>
+                    <b>總計：{{$total}} 元</b>
                 </div>
                 <div style="text-align:center">
-{{--                    <a class="btn btn-sm btn-primary" href="{{route('cart.final')}}">結帳</a>--}}
+                    <a class="btn btn-outline-primary" href="{{route('cart.finish')}}">前往結帳</a>
                 </div>
             @else
                 <div style="text-align: center">

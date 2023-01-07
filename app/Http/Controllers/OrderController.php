@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Order;
 use App\Http\Requests\StoreOrderRequest;
 use App\Http\Requests\UpdateOrderRequest;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class OrderController extends Controller
 {
@@ -15,7 +17,10 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
+        $name=Auth::user()->id;
+        $orders=Order::where('users_id',$name)->get();
+        $data=['orders'=>$orders];
+        return view('order.history',$data);
     }
 
     /**
@@ -45,9 +50,22 @@ class OrderController extends Controller
      * @param  \App\Models\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function show(Order $order)
+    public function show($id)
     {
-        //
+        $name=Auth::user()->id;
+        $items=DB::table('items')
+            ->join('products','products_id','=','id')
+            ->select('products.name','quantity','products.price')
+            ->where('orders_id','=',$id)
+            ->get();
+        ['items'=>$items];
+        $total=0;
+        foreach ($items as $item)
+        {
+            $total = ($item->price)*($item->quantity)+$total;
+        }
+        $data=['items'=>$items,'total'=>$total];
+        return view('order.detail',$data);
     }
 
     /**

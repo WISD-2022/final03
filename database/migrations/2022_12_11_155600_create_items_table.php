@@ -14,7 +14,6 @@ return new class extends Migration
     public function up()
     {
         Schema::create('items', function (Blueprint $table) {
-            $table->id();
             $table->timestamps();
             $table->unsignedBigInteger('orders_id');
             $table->foreign('orders_id')->references('id')->on('orders');
