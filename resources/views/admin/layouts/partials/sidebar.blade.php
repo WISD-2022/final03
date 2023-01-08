@@ -31,6 +31,9 @@
             <li>
                 <a href="{{ route('admin.products.index') }}"><i class="fa fa-fw fa-edit"></i> 商品管理</a>
             </li>
+            <li>
+                <a href="{{ route('admin.orders.index') }}"><i class="fa fa-fw fa-edit"></i> 訂單管理</a>
+            </li>
         </ul>
     </div>
     <!-- /.navbar-collapse -->

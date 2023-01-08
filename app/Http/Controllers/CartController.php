@@ -55,7 +55,7 @@ class CartController extends Controller
     public function store(Request $request)
     {
         Cart::create($request->all());
-        return redirect()->route('product.index')->with('status','已加入購物車');
+        return redirect()->route('cart.index')->with('status','已加入購物車');
     }
 
     /**
@@ -132,6 +132,7 @@ class CartController extends Controller
         $name=Auth::user()->id;
         Order::create([
             'users_id'=>$name,
+            'products_id'=>0,
             'date'=>Carbon::now(),
             'status'=>'未完成',
             'sum'=>0,
@@ -163,6 +164,7 @@ class CartController extends Controller
             ]);
             $total = ($cart->price)*($cart->quantity)+$total;
             $sums=$cart->quantity+$sums;
+            Order::where('id',$order_id->id)->update(['products_id'=>$cart->id],['quantity'=>$cart->quantity]);
         }
         Cart::where('users_id',$name)->delete();
         Order::where('id',$order_id->id)->update(['sum' =>$total]);

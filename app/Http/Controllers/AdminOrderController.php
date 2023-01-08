@@ -3,9 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\AdminOrder;
+use App\Models\Order;
+use App\Models\Product;
 use App\Http\Requests\StoreAdmin_OrderRequest;
 use App\Http\Requests\UpdateAdmin_OrderRequest;
-
+use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
+use function Illuminate\Events\queueable;
 class AdminOrderController extends Controller
 {
     /**
@@ -15,7 +19,9 @@ class AdminOrderController extends Controller
      */
     public function index()
     {
-        //
+        $orders=Order::orderBy('id', 'asc')->get();
+        $data=['order'=>$orders];
+        return view('admin.orders.index', $data);
     }
 
     /**
@@ -56,9 +62,11 @@ class AdminOrderController extends Controller
      * @param  \App\Models\Admin_Order  $admin_Order
      * @return \Illuminate\Http\Response
      */
-    public function edit(Admin_Order $admin_Order)
+    public function edit($id)
     {
-        //
+        $orders=Order::find($id);
+        $data=['orders'=>$orders];
+        return view('admin.orders.edit',$data);
     }
 
     /**
@@ -68,9 +76,11 @@ class AdminOrderController extends Controller
      * @param  \App\Models\Admin_Order  $admin_Order
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateAdmin_OrderRequest $request, Admin_Order $admin_Order)
+    public function update(Request $request,$id)
     {
-        //
+        $orders=Order::find($id);
+        $orders->update($request->all());
+        return redirect()->route('admin.orders.index');
     }
 
     /**
@@ -79,8 +89,15 @@ class AdminOrderController extends Controller
      * @param  \App\Models\Admin_Order  $admin_Order
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Admin_Order $admin_Order)
+    public function destroy($id)
     {
         //
+        Order::destroy($id);
+        return redirect()->route('admin.order.index');
+    }
+    public function order()
+    {
+        $data = DB::table('orders')->get();
+        return view('order', ['order' => $data]);
     }
 }
