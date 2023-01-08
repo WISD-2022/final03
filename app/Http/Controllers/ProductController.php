@@ -17,7 +17,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $data = DB::table('products')->get();
+        $data = DB::table('products')->where('status','=','已上架')->get();
         return view('product.index', ['products' => $data]);
     }
 

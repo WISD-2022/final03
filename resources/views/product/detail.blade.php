@@ -23,6 +23,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-md-10 mx-auto">
+                @if(user()->status == '1')
                 <form action="/cart/store" method="post">
                     @method('POST')
                     @csrf
@@ -38,7 +39,7 @@
                                     <br><h3>{{$product->name}}&emsp;<font color="#FF0000">NT.{{$product->price}}</font></h3>
                                     <br>
                                     <div style="line-height:35px;font-size:17px;">
-                                        <p>{{$product->content}}</p>
+                                        <p>{{$product->description}}</p>
                                     </div>
                                     <br>
                                     數量：<input style="width:80px;" type="number" name="quantity" min="1" max="99" value="1">

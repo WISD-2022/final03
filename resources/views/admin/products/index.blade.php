@@ -53,7 +53,7 @@
                         <td style="text-align: center">{{ $products->status}}</td>
                         <td>
                             <a class="btn btn-sm btn-primary" href="{{ route('admin.products.edit', $products->id) }}">編輯</a>
-                            <form action="/admin/product/{{$products->id}}" method="POST" style="display: inline">
+                            <form action="/admin/products/{{$products->id}}" method="POST" style="display: inline">
                                 @method('DELETE')
                                 @csrf
                                 <button class="btn btn-sm btn-danger" type="submit">刪除</button>
