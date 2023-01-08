@@ -31,6 +31,7 @@ class User extends Authenticatable
         'phone',
         'birthday',
         'address',
+        'status',
     ];
     public function order(){
         return $this->hasMany(Order::class);             #一對多

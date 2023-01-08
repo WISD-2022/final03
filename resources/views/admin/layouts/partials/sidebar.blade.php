@@ -12,15 +12,17 @@
     </div>
     <!-- Top Menu Items -->
     <ul class="nav navbar-right top-nav">
-        <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> 管理員 <b class="caret"></b></a>
-            <ul class="dropdown-menu">
+        @if(\Illuminate\Support\Facades\Auth::check())
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> {{ Auth::user()->name }}<b class="caret"></b></a>
+                <ul class="dropdown-menu">
 
-                <li>
-                    <a href="{{ route('user.logout') }}"><i class="fa fa-fw fa-power-off"></i> 登出</a>
-                </li>
-            </ul>
-        </li>
+                    <li>
+                        <a href="{{ route('user.logout') }}"><i class="fa fa-fw fa-power-off"></i> 登出</a>
+                    </li>
+                </ul>
+            </li>
+       @endif
     </ul>
     <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
     <div class="collapse navbar-collapse navbar-ex1-collapse">

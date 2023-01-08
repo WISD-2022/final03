@@ -37,6 +37,7 @@ class CreateNewUser implements CreatesNewUsers
             'address' => $input['address'],
             'phone' => $input['phone'],
             'birthday' => $input['birthday'],
+            'status'=>'1',
         ]);
     }
 }
