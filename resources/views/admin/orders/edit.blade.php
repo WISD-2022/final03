@@ -57,6 +57,18 @@
                     </tbody>
                 </table>
                     <h4 class="page-header">
+                        訂購人:
+                    </h4>
+                    <?php
+                        $name = Auth::user()->id;
+                        $user = DB::table('users')->where('id','=',$name)->orderBy('id','ASC')->get();
+                    ?>
+                    @foreach($user as $users)
+                        @if($orders->users_id == $users->id)
+                            <label>{{$users->name}}</label>
+                        @endif
+                    @endforeach
+                    <h4 class="page-header">
                         購入產品:
                     </h4>
                     <?php
@@ -66,10 +78,13 @@
                     @foreach($item as $items)
                         @foreach($product as $products)
                             @if($items->products_id == $products->id)
-                                {{$products->name}}
+                                <label>{{$products->name}}</label>&nbsp;|
                             @endif
                       @endforeach
                     @endforeach
+                    <?php
+
+                    ?>
                 </form>
             </div>
         </div>
