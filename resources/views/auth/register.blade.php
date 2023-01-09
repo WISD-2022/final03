@@ -33,10 +33,12 @@
                 <x-jet-label for="phone" value="{{ __('Phone') }}" />
                 <x-jet-input id="phone" class="block mt-1 w-full" type="text" name="phone" :value="old('phone')" required />
             </div>
-
+            <?php
+                $date=\Carbon\Carbon::now()->toDateString();
+            ?>
             <div class="mt-4">
                 <x-jet-label for="birthday" value="{{ __('Birthday') }}" />
-                <x-jet-input id="birthday" class="block mt-1 w-full" type="date" name="birthday" :value="old('birthday')" required />
+                <x-jet-input id="birthday" class="block mt-1 w-full" type="date" name="birthday" max="{{ $date}}" value="old('birthday')" required />
             </div>
 
             <div class="mt-4">

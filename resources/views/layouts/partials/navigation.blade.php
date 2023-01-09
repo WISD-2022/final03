@@ -15,14 +15,18 @@
                     <a class="nav-link" href="{{route('cart.index')}}">購物車&ensp;</a>
                 </li>
                 @if(\Illuminate\Support\Facades\Auth::check())
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{ Auth::user()->name }}</a>
-                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="{{route('user.edit')}}">會員資料</a></li>
-                            <li><a class="dropdown-item" href="{{route('order.history')}}">歷史訂單</a></li>
-                            <li><a class="dropdown-item" href="{{ route('user.logout') }}">登出</a></li>
-                        </ul>
-                    </li>
+                    @if(Auth::user()->status == '0')
+                        <script>alert('管理者登入成功');window.location.href='{{ route('admin.dashboard.index') }}'</script>
+                    @else
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{ Auth::user()->name }}</a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="{{route('user.edit')}}">會員資料</a></li>
+                                <li><a class="dropdown-item" href="{{route('order.history')}}">歷史訂單</a></li>
+                                <li><a class="dropdown-item" href="{{ route('user.logout') }}">登出</a></li>
+                            </ul>
+                        </li>
+                    @endif
                 @else
                     <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">登入</a></li>
                 @endif

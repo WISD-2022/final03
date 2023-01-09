@@ -20,7 +20,6 @@ class Order extends Model
     protected $fillable=[
         'id',
         'users_id',
-        'products_id',
         'quantity',
         'sum',
         'date',

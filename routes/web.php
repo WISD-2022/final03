@@ -77,6 +77,8 @@ Route::group(['prefix' => 'admin'], function() {
     #編輯訂單狀態
     Route::get('orders/{id}/edit',[AdminOrderController::class,'edit'])->name('admin.orders.edit');
     Route::patch('orders/{order}',[AdminOrderController::class,'update'])->name('admin.orders.update');
+    #刪除訂單
+    Route::delete('orders/{order}',[AdminOrderController::class,'destroy'])->name('admin.orders.destroy');
 });
 
 Route::resource('admins',AdminController::class);
