@@ -2,10 +2,10 @@
 @section('content')
 <style>
     .br1{
-        line-height:130px
+        line-height:162px
     }
     .br2{
-        line-height:160px
+        line-height:176px
     }
 </style>
 <br>
