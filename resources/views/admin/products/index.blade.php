@@ -32,7 +32,7 @@
                 <thead>
                     <tr>
                         <th width="60" style="text-align: center">#</th>
-                        <th width="60">產品名稱</th>
+                        <th width="60" style="text-align: center" >產品名稱</th>
                         <th width="70" style="text-align: center">香味</th>
                         <th width="200" style="text-align: center">商品內容</th>
                         <th width="60" style="text-align: center">價格</th>
@@ -44,14 +44,14 @@
                 <tbody>
                 @foreach($product as $products)
                     <tr>
-                        <td style="text-align: center">{{ $products->id }}</td>
-                        <td>{{ $products->name }}</td>
-                        <td style="text-align: center">{{ $products->scent}}</td>
-                        <td style="text-align: center">{{ $products->description}}</td>
-                        <td style="text-align: center">{{ $products->price}}</td>
-                        <td style="text-align: center">{{ $products->inventory}}</td>
-                        <td style="text-align: center">{{ $products->status}}</td>
-                        <td>
+                        <td style="text-align: center;vertical-align: middle">{{ $products->id }}</td>
+                        <td style="text-align: center;vertical-align: middle">{{ $products->name }}</td>
+                        <td style="text-align: center;vertical-align: middle">{{ $products->scent}}</td>
+                        <td style="text-align: center;vertical-align: middle">{{ $products->description}}</td>
+                        <td style="text-align: center;vertical-align: middle">{{ $products->price}}</td>
+                        <td style="text-align: center;vertical-align: middle">{{ $products->inventory}}</td>
+                        <td style="text-align: center;vertical-align: middle">{{ $products->status}}</td>
+                        <td style="text-align: center;vertical-align: middle">
                             <a class="btn btn-sm btn-primary" href="{{ route('admin.products.edit', $products->id) }}">編輯</a>
                             <form action="/admin/products/{{$products->id}}" method="POST" style="display: inline">
                                 @method('DELETE')

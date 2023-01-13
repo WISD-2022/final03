@@ -1,66 +1,153 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 系統畫面
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## ◆首頁
+- 產品及活動圖片幻燈片、熱銷產品、會員註冊與登入
+  <img src="public/picture/1.png" alt="">
 
-## About Laravel
+## ◆產品瀏覽
+- 所有餐點之瀏覽，顯示價錢及餐點種類
+  <img src="public/picture/2.png" alt="">
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## ◆個別產品頁面(加入購物車頁面)
+- 加入購物車之頁面，可選擇產品數量
+  <img src="public/picture/3.png" alt="">
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## ◆購物車
+- 欲訂購之產品會先加入至購物車內，並顯示小計與總計
+  <img src="public/picture/4.png" alt="">
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## ◆會員歷史訂單查詢
+- 可查詢該會員的歷史訂單
+  <img src="public/picture/5.png" alt="">
 
-## Learning Laravel
+## ◆會員歷史訂單明細查詢
+- 可查詢該會員的歷史訂單明細
+  <img src="public/picture/6.png" alt="">
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## ◆會員個人資料修改
+- 提供會員修改個人資料
+  <img src="public/picture/7.png" alt="">
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## ◆後台產品管理
+- 查看所有產品，可新增產品
+  <img src="public/picture/8.png" alt="">
 
-## Laravel Sponsors
+## ◆後台訂單管理
+- 查看所有訂單，包含已完成及準備中之訂單
+  <img src="public/picture/9.png" alt="">
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
 
-### Premium Partners
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+## 系統名稱及作用
 
-## Contributing
+HS SHOP
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+- 顧客可以選擇商品、數量進行購買
+- 顧客在確認產品無誤後，可以按下加入購物車
+- 顧客可察看購物車內容、結帳
+- 顧客可察看訂單資訊
+- 管理者可以上、下架產品
+- 管理者可以編輯、新增、刪除產品
 
-## Code of Conduct
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## 系統的主要功能
+★ 前台
+- 首頁 (Route::get('/',[\App\Http\Controllers\HomeController::class,'index'])->name('home');) [3A832046 陳靖綾](https://github.com/3A832046)
+- 產品瀏覽 (Route::get('/product/index',[\App\Http\Controllers\ProductController::class,'index'])->name('product.index');) [3A832046 陳靖綾](https://github.com/3A832046)
+- 個別產品資訊 (Route::get('/product/index/detail/{id}',[\App\Http\Controllers\ProductController::class,'show'])->name('product.detail');) [3A832046 陳靖綾](https://github.com/3A832046)
+- 購物車 (Route::get('/cart/index',[\App\Http\Controllers\CartController::class,'index'])->name('cart.index');) [3A832046 陳靖綾](https://github.com/3A832046)
+- 訂單查詢 (Route::get('/order/history',[\App\Http\Controllers\OrderController::class,'index'])->name('order.history');) [3A832046 陳靖綾](https://github.com/3A832046)
 
-## Security Vulnerabilities
+★ 後台
+- 產品管理 (Route::get('products',[AdminController::class,'index'])->name('admin.products.index');) [3A832005 李晏慈](https://github.com/3A832005)
+- 訂單管理 (Route::get('orders',[AdminOrderController::class,'index'])->name('admin.orders.index');) [3A832005 李晏慈](https://github.com/3A832005)
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## ERD
+  <img src="public/picture/10.png" alt="">
 
-## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## 關聯式綱要圖
+  <img src="public/picture/11.png" alt="">
+
+
+## 實際資料表欄位設計
+
+- 會員 (users)資料表
+  <img src="public/picture/12.png" alt="">
+
+
+- 產品 (product)資料表
+  <img src="public/picture/13.png" alt="">
+
+
+- 購物車 (carts)資料表
+  <img src="public/picture/14.png" alt="">
+
+
+- 訂單 (order)資料表
+  <img src="public/picture/15.png" alt="">
+
+
+- 項目 (items)資料表
+  <img src="public/picture/16.png" alt="">
+
+
+
+## 初始專案與DB負責的同學
+
+- 初始專案 [3A832005 李晏慈](https://github.com/3A832005)
+- DB [3A832005 李晏慈](https://github.com/3A832005)、[3A832046 陳靖綾](https://github.com/3A832046)
+
+
+
+## 額外使用的套件或樣板
+
+- 前台樣板：[Heroic Features](https://startbootstrap.com/template/heroic-features)
+
+        作為前台頁面使用，畫面簡單乾淨
+
+- 後台樣板：[Sidebar](https://startbootstrap.com/template/simple-sidebar)
+
+        作為後台管理使用，介面清楚明瞭，方便操作
+
+
+## 系統測試資料存放位置
+
+     final03底下的sql資料夾
+
+## 系統使用者測試帳號
+
+★ 前台
+
+     帳號：aaa@gmail.com
+     密碼：123456ab
+
+★ 後台
+
+     帳號：admin@gmail.com
+     密碼：admin123
+
+
+## 系統開發人員與工作分配
+
+[3A832005 李晏慈](https://github.com/3A832005)
+
+    後台管理
+    初始專案
+    DB
+    登入後判斷身分別進入前台或後台
+    登入頁面修改
+    會員資料頁面修改
+    期中報告製作
+
+
+[3A832046 陳靖綾](https://github.com/3A832046)
+
+    前台管理
+    DB
+    readme 撰寫
+    註冊頁面修改
+    前台購物車及訂單查詢
+    期中報告製作
+        

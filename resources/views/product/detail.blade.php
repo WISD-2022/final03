@@ -2,7 +2,7 @@
 @section('content')
 <style>
     .br1{
-        line-height:22px
+        line-height:30px
     }
 </style>
 <br>

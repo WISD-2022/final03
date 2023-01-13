@@ -60,9 +60,9 @@ Route::patch('/user/{id}',[\App\Http\Controllers\UserController::class,'update']
 #後台管理
 Route::group(['prefix' => 'admin'], function() {
     #首頁
-    Route::get('/',[AdminDashboardController::class,'index'])->name( 'admin.dashboard.index');
+    Route::get('/',[AdminDashboardController::class,'index'])->name('admin.dashboard.index');
     #商品列表
-    Route::get('products',[AdminController::class,'index'])->name( 'admin.products.index');
+    Route::get('products',[AdminController::class,'index'])->name('admin.products.index');
     #增加商品
     Route::get('products/create',[AdminController::class,'create'])->name('admin.products.create');
     #儲存新商品資訊
@@ -73,7 +73,7 @@ Route::group(['prefix' => 'admin'], function() {
     #刪除商品
     Route::delete('products/{product}',[AdminController::class,'destroy'])->name('admin.products.destroy');
     #訂單列表
-    Route::get('orders',[AdminOrderController::class,'index'])->name( 'admin.orders.index');
+    Route::get('orders',[AdminOrderController::class,'index'])->name('admin.orders.index');
     #編輯訂單狀態
     Route::get('orders/{id}/edit',[AdminOrderController::class,'edit'])->name('admin.orders.edit');
     Route::patch('orders/{order}',[AdminOrderController::class,'update'])->name('admin.orders.update');
