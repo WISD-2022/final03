@@ -9,6 +9,7 @@ use App\Models\Product;
 use App\Http\Requests\StoreAdmin_OrderRequest;
 use App\Http\Requests\UpdateAdmin_OrderRequest;
 use Illuminate\Support\Facades\DB;
+//use Illuminate\Database\MySqlConnection;
 use Illuminate\Http\Request;
 use function Illuminate\Events\queueable;
 use Illuminate\Support\Facades\Auth;
@@ -82,6 +83,26 @@ class AdminOrderController extends Controller
     public function update(Request $request,$id)
     {
         $orders=Order::find($id);
+        if($orders->status="已完成"){
+            $item=DB::table('items')
+                ->join('orders','items.orders_id','=','orders.id')
+                ->orderBy('orders_id','desc')
+                ->select('products_id','items.quantity')
+                ->get();
+            $product=DB::table('products')
+                ->join('items','id','=','items.products_id')
+                ->select('id','inventory')
+                ->get();
+
+            foreach ($item as $items){
+                foreach ($product as $products) {
+                    if($items->products_id == $products->id) {
+                        $number = ($products->inventory)-($items->quantity);
+                        Product::where('id',$items->products_id)->update(['inventory' =>$number]);
+                    }
+                }
+            }
+        }
         $orders->update($request->all());
         return redirect()->route('admin.orders.index');
     }
