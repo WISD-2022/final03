@@ -60,6 +60,7 @@ HS SHOP
 - 訂單查詢 (Route::get('/order/history',[\App\Http\Controllers\OrderController::class,'index'])->name('order.history');) [3A832046 陳靖綾](https://github.com/3A832046)
 
 ★ 後台
+
 - 產品管理 (Route::get('products',[AdminController::class,'index'])->name('admin.products.index');) [3A832005 李晏慈](https://github.com/3A832005)
 - 訂單管理 (Route::get('orders',[AdminOrderController::class,'index'])->name('admin.orders.index');) [3A832005 李晏慈](https://github.com/3A832005)
 
@@ -114,7 +115,7 @@ HS SHOP
 
 ## 系統測試資料存放位置
 
-     final03底下的sql資料夾
+     final03底下的final03.sql
 
 ## 系統使用者測試帳號
 

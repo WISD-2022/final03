@@ -15,7 +15,7 @@
         <div class="row">
             <div class="col-lg-8 col-md-10 mx-auto">
                 <div class="page-heading">
-                    <br><center><h1><b>歷史訂單</b></h1></center>
+                    <br><center><h1><b>所有訂單</b></h1></center>
                 </div>
             </div>
         </div>
